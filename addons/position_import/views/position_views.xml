@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_position_imported_list" model="ir.ui.view">
+        <field name="name">position.imported.list</field>
+        <field name="model">position.imported</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="vacancies_count"/>
+                <field name="applications_count"/>
+                <field name="average_applications"/>
+                <field name="min_applications"/>
+                <field name="max_applications"/>
+                <field name="imported_at"/>
+            </list>
+        </field>
+    </record>
+
+
+    <record id="view_position_imported_form" model="ir.ui.view">
+        <field name="name">position.imported.form</field>
+        <field name="model">position.imported</field>
+        <field name="arch" type="xml">
+            <form>
+
+                <sheet>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group string="Position">
+                            <field name="external_position_id"/>
+                            <field name="imported_at"/>
+                        </group>
+
+                        <group string="Statistics">
+                            <field name="vacancies_count"/>
+                            <field name="applications_count"/>
+                            <field name="average_applications"/>
+                            <field name="min_applications"/>
+                            <field name="max_applications"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+
+                        <page string="Attributes">
+                            <field name="attribute_ids" readonly="1">
+                                <list create="0" edit="0" delete="0">
+                                    <field name="title"/>
+                                    <field name="attribute_type"/>
+                                    <field name="average"/>
+                                    <field name="min_value"/>
+                                    <field name="max_value"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Vacancies">
+                            <field name="vacancy_ids" readonly="1">
+                                <list create="0" edit="0" delete="0">
+                                    <field name="title"/>
+                                    <field name="applications_count"/>
+                                </list>
+                            </field>
+                        </page>
+
+                    </notebook>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_position_import_attribute_form" model="ir.ui.view">
+        <field name="name">position.import.attribute.form</field>
+        <field name="model">position.import.attribute</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="title"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="attribute_type"/>
+                        <field name="average"/>
+                        <field name="min_value"/>
+                        <field name="max_value"/>
+                    </group>
+
+                    <group string="Popular values">
+                        <field name="popular_value_ids" readonly="1">
+                            <list create="0" edit="0" delete="0">
+                                <field name="value"/>
+                                <field name="count"/>
+                            </list>
+                        </field>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_position_import_vacancy_form" model="ir.ui.view">
+        <field name="name">position.import.vacancy.form</field>
+        <field name="model">position.import.vacancy</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="title"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="external_vacancy_id"/>
+                        <field name="applications_count"/>
+                    </group>
+
+                    <group string="Description">
+                        <field name="description" nolabel="1"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_position_imported" model="ir.actions.act_window">
+        <field name="name">Positions</field>
+        <field name="res_model">position.imported</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <menuitem
+        id="menu_position_import_root"
+        name="Position Import"
+        sequence="10"/>
+
+
+    <menuitem
+        id="menu_position_imported"
+        name="Positions"
+        parent="menu_position_import_root"
+        action="action_position_imported"
+        sequence="10"/>
+
+</odoo>

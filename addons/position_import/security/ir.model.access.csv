@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_position_imported_user,position.imported.user,model_position_imported,base.group_user,1,0,0,0
+access_position_import_attribute_user,position.import.attribute.user,model_position_import_attribute,base.group_user,1,0,0,0
+access_position_import_popular_value_user,position.import.popular.value.user,model_position_import_popular_value,base.group_user,1,0,0,0
+access_position_import_vacancy_user,position.import.vacancy.user,model_position_import_vacancy,base.group_user,1,0,0,0
+access_position_import_wizard_user,position.import.wizard.user,model_position_import_wizard,base.group_user,1,1,1,1
