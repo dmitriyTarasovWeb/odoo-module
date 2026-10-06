@@ -21,7 +21,7 @@ class PositionImportWizard(models.TransientModel):
     def action_import(self):
         self.ensure_one()
 
-        api_url = "https://host.docker.internal:7206/api/positions/results"
+        api_url = "https://resumesystem.up.railway.app/api/positions/results"
 
         try:
             response = requests.get(
